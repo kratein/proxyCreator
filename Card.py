@@ -1,5 +1,5 @@
-import json
-from typing import List, Dict, Any, Optional
+from typing import Dict, Any
+
 
 class Card:
     def __init__(self, data: Dict[str, Any]):
@@ -70,7 +70,12 @@ class Card:
         self.purchase_uris = data.get("purchase_uris", {})
 
     def get(self, attribute: str) -> Any:
-       return getattr(self, attribute, None)
-    
+        return getattr(self, attribute, None)
+
     def __repr__(self):
         return f"Card(name={self.name}, set={self.set}, rarity={self.rarity})"
+
+    def __eq__(self, other):
+        if isinstance(other, Card):
+            return self.name == other.name
+        return False
