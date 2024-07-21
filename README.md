@@ -4,7 +4,8 @@ Cet outil permet de créer facilement des proxy magic à partir d'une liste de n
 
 # REQUIREMENTS
 
-L'accès à https://api.scryfall.com est obligatoire pour récupérer les images des cartes à imprimer 
+L'accès à https://api.scryfall.com est obligatoire pour récupérer les images des cartes à imprimer.
+il faut python version 3.
 
 # OPTIONS
 - 1. Depuis un fichier contenant le nom des cartes à imprimer, une par ligne.
