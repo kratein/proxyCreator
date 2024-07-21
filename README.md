@@ -6,8 +6,14 @@ Cet outil permet de créer facilement des proxy magic à partir d'une liste de n
 
 L'accès à https://api.scryfall.com est obligatoire pour récupérer les images des cartes à imprimer.
 il faut python version 3 et les modules pillow et requests.
+python -m pip install resquests
+python -m pip install pillow
 
 # OPTIONS
+
+lancement de l'outil se fait en exécutant le main : 
+python main.py
+
 - 1. Depuis un fichier contenant le nom des cartes à imprimer, une par ligne.
   -  ce fichier peut également contenir les quantités des cartes, tous les caractères numériques sont ignorés
   -  moi même j'utilise l'export de https://archidekt.com/
