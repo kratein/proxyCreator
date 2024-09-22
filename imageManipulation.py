@@ -5,11 +5,12 @@ Y_POSITION_PX = [194,194,194,1234,1234,1234,2274,2274,2274]
 WIDTH_MM =  63.10 
 HEIGHT_MM =  88.09  
 DPI = 300
-width_px = int((WIDTH_MM / 25.4) * DPI)
-height_px = int((HEIGHT_MM / 25.4) * DPI)
+ONE_INCH_MM = 25.4
+width_px = int((WIDTH_MM / ONE_INCH_MM) * DPI)
+height_px = int((HEIGHT_MM / ONE_INCH_MM) * DPI)
 
 def mm_to_pixels(mm, dpi):
-    return int((mm / 25.4) * dpi)
+    return int((mm / ONE_INCH_MM) * dpi)
 
 def resize_all_in_folder(directory: str, lstImage: list):
     for image in lstImage:
@@ -30,4 +31,4 @@ def create_page_to_print_front(pathResult: str, lstImages: list):
         image = Image.open(imagePath)
         background.paste(image, (X_POSITION_PX[i], Y_POSITION_PX[i]), image)
         i = i + 1
-    background.save(pathResult)
+    background.save(pathResult, dpi=(DPI,DPI))
