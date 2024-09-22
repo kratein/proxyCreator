@@ -1,6 +1,7 @@
 import tools
 import fileManipulation
 import imageManipulation
+import os
 
 def main():
     # Display the welcome message and options to the user
@@ -44,11 +45,14 @@ def main():
         # Option 4: Create a page for front-side printing
         print("Entrez le chemin vers le dossier de travail")
         workDirectory = input()  # Get the working directory
-        images_cards = fileManipulation.get_all_png(workDirectory)  # Get all PNG images
-        imageManipulation.resize_all_in_folder(workDirectory, images_cards)  # Resize all images
-        imageManipulation.create_page_to_print_front(
-            f"{workDirectory}/front.png", images_cards
-        )  # Create the front page for printing
+        for itemName in os.listdir(workDirectory):
+            itemPath = os.path.join(workDirectory, itemName)
+            if os.path.isdir(itemPath):
+                images_cards = fileManipulation.get_all_png(itemPath)  # Get all PNG images
+                imageManipulation.resize_all_in_folder(itemPath, images_cards)  # Resize all images
+                imageManipulation.create_page_to_print_front(
+                    f"{itemPath}/front.png" , images_cards
+                )  # Create the front page for printing                
 
 
 if __name__ == "__main__":
